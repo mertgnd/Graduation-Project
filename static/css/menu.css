@@ -1,0 +1,27 @@
+span.reference{
+  position:fixed;
+  left:10px;
+  bottom:10px;
+  font-size:12px;
+}
+span.reference a{
+  color:#aaa;
+  text-transform:uppercase;
+  text-decoration:none;
+  text-shadow:1px 1px 1px #000;
+  margin-right:30px;
+}
+span.reference a:hover{
+  color:#ddd;
+}
+#deneme{
+  width: 100%;
+}
+#deneme ul li a span{
+  font-size: 20px;
+}
+ul.sdt_menu{
+  margin-top:40px;
+  width: auto;
+  height: 70px;
+}

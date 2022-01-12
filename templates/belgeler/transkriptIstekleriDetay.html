@@ -1,0 +1,507 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block kullanici %}
+{{ user.get_full_name }}
+{% endblock %}
+
+{% block title %}Transkript İstek Detayı{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<div class="container" style="width: 780px; background-color: #9d9d9d; margin-top: 50px;
+-webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+    <div class="container"
+         style="background-color: #333333; width: 750px; margin-bottom: 20px; margin-top: 15px;
+     -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+        {% for g in user.groups.all %}
+        {% if g.name == 'Mezun' %}
+        <legend style="margin-top: 20px; color: white; margin-bottom: 5px; font-size: 20px;"><b><p
+                style="margin-top: 10px; margin-bottom: 5px; font-size: 20px; color: white;">
+            Transkript Talep Formu <small style="color:white; float: right;"> {{ mezunIstekleri.istekTarihi|date:"d/m/Y"}}</small></p>
+        </b></legend>
+        <div class="row" style="margin-left: 5px; margin-right: 5px; color: white">
+
+            <form class="form-group row">
+                <p>
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Ad:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{mezunIstekleri.ad}}
+                </div>
+                </p>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Soyad:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{mezunIstekleri.soyad}}
+                </div>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">TC Kimlik Numarası:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{mezunIstekleri.tc}}
+                </div>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Öğrenci Numarası:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{mezunIstekleri.ogrenciNo}}
+                </div>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Mezuniyet Tarihi:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{mezunIstekleri.mezunYili}}
+                </div>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Telefon Numarası:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{mezunIstekleri.telefon}}
+                </div>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Adres:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{mezunIstekleri.adres}}
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container" style="width: 780px; background-color: #9d9d9d; margin-bottom: 5px; margin-top: 5px;
+-webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+    <div class="container"
+         style="background-color: #333333; width: 750px; margin-bottom: 20px; margin-top: 15px;
+     -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+        <br>
+        <hr>
+        <b><span style="margin-left: 5px; font-size: 25px; color: white;">Mesaj Gönder</span><span
+                style="float: right; margin-right: 15px; color: white; font-size: 20px;">Tarih: {{ tarih|date:"d/m/Y" }}</span></b>
+        <hr>
+        {% include 'belgeler/mesajlar.html' %}
+
+    </div>
+</div>
+
+
+<div class="container" style="width: 780px; background-color: #9d9d9d; margin-bottom: 40px; margin-top: 5px;
+-webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+    <div class="container"
+         style="background-color: #333333; width: 750px; margin-bottom: 20px; margin-top: 15px;
+     -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+        {% for mesaj in mezunIstekleri.mesajMezun.all %}
+        <form class="form-group row">
+            <div class="col-sm-12" style="margin-top: 15px; color: white;">
+                <label class="col-form-label" style="font-size: 15px;">{{mesaj.ad}}</label> |
+                <small>{{mesaj.mesajTarihi|timesince}} önce</small>
+            </div>
+            <div class="col-sm-12" style="color: white;">
+                <p>{{mesaj.mesaj|linebreaks}}</p>
+                {% if mesaj.belge %}
+                    <p style="float: left;">Transkriptiniz Hazır. İndirmek İçin Sağdaki Butonu Kullanabilirsiniz.</p>
+                    <a class="btn btn-info" href="{{mesaj.belge.url}}" role="button" style="width: 100px; margin-left: 100px; margin-top: -20px;">İndir</a><br>
+                {% endif %}
+                <hr>
+            </div>
+        </form>
+
+        {% endfor %}
+        {% endif %}
+
+        {% if g.name == 'Öğrenci' %}
+        <legend style="margin-top: 20px; color: white; margin-bottom: 5px; font-size: 20px;"><b><p
+                style="margin-top: 10px; margin-bottom: 5px; font-size: 20px; color: white;">
+            Transkript Talep Formu <small style="color:white; float: right;"> {{ ogrenciIstekleri.istekTarihi|date:"d/m/Y"}}</small></p>
+        </b></legend>
+        <div class="row" style="margin-left: 5px; margin-right: 5px; color: white">
+
+            <form class="form-group row">
+                <p>
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Ad:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{ogrenciIstekleri.ad}}
+                </div>
+                </p>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Soyad:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{ogrenciIstekleri.soyad}}
+                </div>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">TC Kimlik Numarası:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{ogrenciIstekleri.tc}}
+                </div>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Öğrenci Numarası:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{ogrenciIstekleri.ogrenciNo}}
+                </div>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Telefon Numarası:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{ogrenciIstekleri.telefon}}
+                </div>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Adres:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{ogrenciIstekleri.adres}}
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container" style="width: 780px; background-color: #9d9d9d; margin-bottom: 5px; margin-top: 5px;
+-webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+    <div class="container"
+         style="background-color: #333333; width: 750px; margin-bottom: 20px; margin-top: 15px;
+     -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+        <br>
+        <hr>
+        <b><span style="margin-left: 5px; font-size: 25px; color: white;">Mesaj Gönder</span><span
+                style="float: right; margin-right: 15px; color: white; font-size: 20px;">Tarih: {{ tarih|date:"d/m/Y" }}</span></b>
+        <hr>
+        {% include 'belgeler/mesajlar.html' %}
+
+    </div>
+</div>
+
+{% if ogrenciIstekleri.mesajOgrenci.all.count > 0 %}
+<div class="container" style="width: 780px; background-color: #9d9d9d; margin-bottom: 40px; margin-top: 5px;
+        -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+    <div class="container"
+         style="background-color: #333333; width: 750px; margin-bottom: 20px; margin-top: 15px;
+             -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+        {% for mesaj in ogrenciIstekleri.mesajOgrenci.all %}
+        <form class="form-group row">
+            <div class="col-sm-12" style="margin-top: 15px; color: white;">
+                <label class="col-form-label" style="font-size: 15px;">{{mesaj.ad}}</label> |
+                <small>{{mesaj.mesajTarihi|timesince}} önce</small>
+            </div>
+            <div class="col-sm-12" style="color: white;">
+                <p>{{mesaj.mesaj|linebreaks}}</p>
+                {% if mesaj.belge %}
+                    <p style="float: left;">Transkriptiniz Hazır. İndirmek İçin Sağdaki Butonu Kullanabilirsiniz.</p>
+                    <a class="btn btn-info" href="{{mesaj.belge.url}}" role="button" style="width: 100px; margin-left: 100px; margin-top: -20px;">İndir</a><br>
+                {% endif %}
+                <hr>
+            </div>
+        </form>
+
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endif %}
+
+{% if g.name == 'Bölüm Sekreteri' %}
+
+    {% if istek == "0" %}
+        <legend style="margin-top: 20px; color: white; margin-bottom: 5px; font-size: 20px;"><b><p
+                style="margin-top: 10px; margin-bottom: 5px; font-size: 20px; color: white;">
+            Transkript Talep Formu <small style="color:white; float: right;"> {{ ogrenciIstekleri.istekTarihi|date:"d/m/Y"}}</small></p>
+        </b></legend>
+        <div class="row" style="margin-left: 5px; margin-right: 5px; color: white">
+
+            <form class="form-group row">
+                <p>
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Ad:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{ogrenciIstekleri.ad}}
+                </div>
+                </p>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Soyad:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{ogrenciIstekleri.soyad}}
+                </div>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">TC Kimlik Numarası:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{ogrenciIstekleri.tc}}
+                </div>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Öğrenci Numarası:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{ogrenciIstekleri.ogrenciNo}}
+                </div>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Telefon Numarası:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{ogrenciIstekleri.telefon}}
+                </div>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Adres:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{ogrenciIstekleri.adres}}
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container" style="width: 780px; background-color: #9d9d9d; margin-bottom: 5px; margin-top: 5px;
+-webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+    <div class="container"
+         style="background-color: #333333; width: 750px; margin-bottom: 20px; margin-top: 15px;
+     -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+        <br>
+        <hr>
+        <b><span style="margin-left: 5px; font-size: 25px; color: white;">Mesaj Gönder</span><span
+                style="float: right; margin-right: 15px; color: white; font-size: 20px;">Tarih: {{ tarih|date:"d/m/Y" }}</span></b>
+        <hr>
+        {% include 'belgeler/mesajlar.html' %}
+
+    </div>
+</div>
+
+{% if ogrenciIstekleri.mesajOgrenci.all.count > 0 %}
+<div class="container" style="width: 780px; background-color: #9d9d9d; margin-bottom: 40px; margin-top: 5px;
+        -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+    <div class="container"
+         style="background-color: #333333; width: 750px; margin-bottom: 20px; margin-top: 15px;
+             -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+        {% for mesaj in ogrenciIstekleri.mesajOgrenci.all %}
+        <form class="form-group row">
+            <div class="col-sm-12" style="margin-top: 15px; color: white;">
+                <label class="col-form-label" style="font-size: 15px;">{{mesaj.ad}}</label> |
+                <small>{{mesaj.mesajTarihi|timesince}} önce</small>
+            </div>
+            <div class="col-sm-12" style="color: white;">
+                <p>{{mesaj.mesaj|linebreaks}}</p>
+                {% if mesaj.belge %}
+                    <p style="float: left;">Transkriptiniz Hazır. İndirmek İçin Sağdaki Butonu Kullanabilirsiniz.</p>
+                    <a class="btn btn-info" href="{{mesaj.belge.url}}" role="button" style="width: 100px; margin-left: 100px; margin-top: -20px;">İndir</a><br>
+                {% endif %}
+                <hr>
+            </div>
+        </form>
+
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endif %}
+
+{% if istek == "1" %}
+
+    <legend style="margin-top: 20px; color: white; margin-bottom: 5px; font-size: 20px;"><b><p
+                style="margin-top: 10px; margin-bottom: 5px; font-size: 20px; color: white;">
+            Transkript Talep Formu <small style="color:white; float: right;"> {{ mezunIstekleri.istekTarihi|date:"d/m/Y"}}</small></p>
+        </b></legend>
+        <div class="row" style="margin-left: 5px; margin-right: 5px; color: white">
+
+            <form class="form-group row">
+                <p>
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Ad:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{mezunIstekleri.ad}}
+                </div>
+                </p>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Soyad:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{mezunIstekleri.soyad}}
+                </div>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">TC Kimlik Numarası:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{mezunIstekleri.tc}}
+                </div>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Öğrenci Numarası:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{mezunIstekleri.ogrenciNo}}
+                </div>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Mezuniyet Tarihi:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{mezunIstekleri.mezunYili}}
+                </div>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Telefon Numarası:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{mezunIstekleri.telefon}}
+                </div>
+            </form>
+
+            <form class="form-group row">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Adres:</label>
+                </div>
+                <div class="col-sm-9">
+                    {{mezunIstekleri.adres}}
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container" style="width: 780px; background-color: #9d9d9d; margin-bottom: 5px; margin-top: 5px;
+-webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+    <div class="container"
+         style="background-color: #333333; width: 750px; margin-bottom: 20px; margin-top: 15px;
+     -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+        <br>
+        <hr>
+        <b><span style="margin-left: 5px; font-size: 25px; color: white;">Mesaj Gönder</span><span
+                style="float: right; margin-right: 15px; color: white; font-size: 20px;">Tarih: {{ tarih|date:"d/m/Y" }}</span></b>
+        <hr>
+        {% include 'belgeler/mesajlar.html' %}
+
+    </div>
+</div>
+
+
+<div class="container" style="width: 780px; background-color: #9d9d9d; margin-bottom: 40px; margin-top: 5px;
+-webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+    <div class="container"
+         style="background-color: #333333; width: 750px; margin-bottom: 20px; margin-top: 15px;
+     -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+        {% for mesaj in mezunIstekleri.mesajMezun.all %}
+        <form class="form-group row">
+            <div class="col-sm-12" style="margin-top: 15px; color: white;">
+                <label class="col-form-label" style="font-size: 15px;">{{mesaj.ad}}</label> |
+                <small>{{mesaj.mesajTarihi|timesince}} önce</small>
+            </div>
+            <div class="col-sm-12" style="color: white;">
+                <p>{{mesaj.mesaj|linebreaks}}</p>
+                {% if mesaj.belge %}
+                    <p style="float: left;">Transkriptiniz Hazır. İndirmek İçin Sağdaki Butonu Kullanabilirsiniz.</p>
+                    <a class="btn btn-info" href="{{mesaj.belge.url}}" role="button" style="width: 100px; margin-left: 100px; margin-top: -20px;">İndir</a><br>
+                {% endif %}
+                <hr>
+            </div>
+        </form>
+
+        {% endfor %}
+
+{% endif %}
+
+{% endif %}
+
+{% endfor %}
+
+
+{% endblock %}

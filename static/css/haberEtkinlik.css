@@ -1,0 +1,48 @@
+#buton1{
+  font-size: 10px;
+	background-color: #333;
+  margin-left:0px; margin-top: 450px; width: 80px; height: 30px;
+  left: -24px;
+  position: absolute;
+  top: 40px;
+  z-index: 8;
+  overflow: hidden;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  transform: rotate(270deg);
+}
+
+#buton2{
+  font-size: 10px;
+  background-color: #333;
+  margin-left:0px; margin-top: 320px; width: 80px; height: 30px;
+  left: -24px;
+  position: absolute;
+  top: 80px;
+  z-index: 8;
+  overflow: hidden;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  transform: rotate(270deg);
+}
+
+#coll{
+  margin-left:0px;
+  margin-top: 50px;
+}
+
+#demo{
+  background-color: #333; 
+  width: 250px; 
+  height: 300px; 
+  color: white;
+}
+
+#demo2{
+  background-color: #333; 
+  width: 250px; 
+  height: 300px;
+  color: white; 
+}

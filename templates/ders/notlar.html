@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Ders Notları{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+{{ block.super }}
+<div class="container"
+     style="margin-top: 50px; margin-bottom: 50px; background-color: #333; width: 730px; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+        {% for ders in dersler %}
+        <div class="container"
+             style="background-color: #666; width: 700px; margin-bottom: 15px; margin-top: 15px; color: white; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px 5px 5px 5px; -moz-box-shadow: 2px 2px 2px #1E90FF; -webkit-box-shadow: 2px 2px 2px #1E90FF;">
+
+
+            <legend><b><p style="margin-top: 10px; margin-bottom: 5px; font-size: 20px; color: white;">
+            {{ders.Ders}} <small style="color:white; float: right;"> {{ ders.published_time}}</small></p>
+            </b></legend>
+
+            <div class="row" style="margin-left: 10px; font-size: 14px">
+                <div class="form-group row col-lg-10" style="margin-top: 5px;">
+                    <p><span class="">Ders Yılı: </span>
+                        {{ ders.Sınıf}}. Sınıf </p>
+                    <p><span class=" ">Yükleyen: </span>
+                        {{ ders.Yükleyen }}
+                    </p>
+                </div>
+            </div>
+            <div class="row" style="margin-left: 10px;">
+                <p><a class="btn btn-info" href="{{ders.get_absolute_url}}" role="button" style="width: 100px;">İncele</a>
+            {% if ders.yukleyenId == user.email %}
+            <a class="btn btn-warning" href="{{ders.get_update_url}}" role="button" style="width: 100px;">Güncelle</a>
+            <a class="btn btn-danger" href="{{ders.get_delete_url}}" role="button" style="width: 100px;">Sil</a></p>
+            {% endif %}
+            </div>
+        </div>
+
+
+{# {{ post.id }} <br>#}
+
+{% endfor %}
+
+    <div class="row">
+        <div class="col-md-12 col-md-offset-2">
+            <div class="pagination" style="color: white; margin-left: 195px;">
+                     <span class="step-links">
+                         {% if dersler.has_previous %}
+                            <a href="?sayfa=1">&laquo; first</a>
+                            <a href="?sayfa={{ dersler.previous_page_number }}">previous</a>
+                         {% endif %}
+
+                         <span class="current">
+                            Page {{ dersler.number }} of {{dersler.paginator.num_pages }}
+                         </span>
+
+                        {% if dersler.has_next %}
+                            <a href="?sayfa={{ dersler.next_page_number }}">next</a>
+                            <a href="?sayfa={{ dersler.paginator.num_pages }}">last &raquo;</a>
+                        {% endif %}
+
+                     </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

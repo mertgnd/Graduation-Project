@@ -1,0 +1,316 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+
+<head>
+	<meta charset="UTF-8">
+ 
+	<title>Kayıt Ol</title>
+	<script type="text/javascript" src="{% static 'js/kayitFormu.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <script src="{% static 'js/main.js' %}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/giris2.css' %}">
+    <script type="https://kit.fontawesome.com/a81368914c.js"></script>
+
+
+
+</head>
+<body>
+<div class="container">
+    <div class="container col-lg-6">
+        <div class="row" style="font-family: serif; font-size: 17px; margin-top: 20px; margin-bottom: -25px; margin-left: 20px; width: 502px;">
+            <input id="mezunbuton" style="width: 250px; height: 40px; background-color: lightblue; " class="button" type="submit" onclick="mezunFormuSecici()" value="Mezun Kayıtı İçin Tıklayınız">
+            <input id="ogrencibuton" style="width: 250px;height: 40px; margin-left: -4px;" class="button" type="submit" onclick="ogrenciFormuSecici()" value="Öğrenci Kayıtı İçin Tıklayınız">
+        </div>
+    <div class="row" id="ogrenciForm" style="display: none">
+        <div class="wrapper">
+    <div class="title">
+      Öğrenci Kayıt Formu
+    </div>
+    <div class="form">
+        <form method="POST">
+        {% csrf_token %}
+
+        <div class="inputfield">
+          <label>Kullanıcı Adı</label>
+            <input type="text" class="input"{{ userform.username }}
+
+       </div>
+
+       <div class="inputfield">
+          <label>Ad</label>
+          <input type="text" class="input"{{ userform.first_name }}
+       </div>
+
+        <div class="inputfield">
+          <label>Soyad</label>
+          <input type="text" class="input"{{ userform.last_name }}
+       </div>
+
+       <div class="inputfield">
+          <label>Şifre</label>
+          <input type="password" class="input"{{ userform.password1 }}
+       </div>
+
+      <div class="inputfield">
+          <label>Şifre Tekrar</label>
+          <input type="password" class="input"{{ userform.password2 }}
+       </div>
+
+
+        <div class="inputfield">
+          <label>E-mail</label>
+          <input type="text" class="input"{{ userform.email }}
+       </div>
+
+       <div class="inputfield">
+          <label>Öğrenci Numarası</label>
+          <input type="text" class="input"{{ ogrenciform.ogrenciNo }}
+       </div>
+
+       <div class="inputfield">
+          <label>Doğum Tarihi</label>
+          <input type="date" class="input"{{ ogrenciform.birth_date }}
+       </div>
+
+       <div class="inputfield">
+          <label>Telefon Numarası</label>
+          <input type="text" class="input"{{ ogrenciform.telefonNumarasi }}
+       </div>
+
+       	<div class="inputfield">
+    		<label>Cinsiyet</label>
+            <input type="text" class="input"{{ ogrenciform.cinsiyet }}
+  		</div>
+
+ 		<div class="inputfield">
+          <label>Şehir</label>
+            <input type="text" class="input"{{ ogrenciform.sehir }}
+       </div>
+
+       <div class="inputfield">
+          <label>Adres</label>
+           <input type="text" class="input"{{ ogrenciform.adres }}
+
+       </div>
+
+
+  <div class="inputfield">
+    <label>Öğrenim Durumu</label>
+      <input type="text" class="input"{{ ogrenciform.ogrenimDurumu }}
+  </div>
+
+  <br>
+      <div class="inputfield">
+          <button type="submit" name="submit" value="ogrenci" class="btn login-btn">KAYDET</button>
+      </div>
+        </form>
+    </div>
+</div>
+    </div>
+    <div class="row" id="mezunForm" style="display: block; background-color: #4cae4c">
+        <div class="wrapper">
+            <div class="title">
+                Mezun Kayıt Formu
+            </div>
+            <div class="form">
+                <form method="POST">
+                {% csrf_token %}
+                    <div class="inputfield">
+                        <label>Kullanıcı Adı</label>
+                        <input type="text" class="input"{{ userform.username }}
+                    </div>
+
+                    <div class="inputfield">
+                        <label>Ad</label>
+                        <input type="text" class="input"{{ userform.first_name }}
+                    </div>
+
+                    <div class="inputfield">
+                        <label>Soyad</label>
+                        <input type="text" class="input"{{ userform.last_name }}
+                    </div>
+
+                    <div class="inputfield">
+                        <label>Şifre</label>
+                        <input type="password" class="input"{{ userform.password1 }}
+                    </div>
+
+                    <div class="inputfield">
+                        <label>Şifre Tekrar</label>
+                        <input type="password" class="input"{{ userform.password2 }}
+                    </div>
+
+
+                    <div class="inputfield">
+                        <label>E-mail</label>
+                        <input type="text" class="input"{{ userform.email }}
+                    </div>
+
+                    <div class="inputfield">
+                        <label>Öğrenci Numarası</label>
+                        <input type="text" class="input"{{ profileform.ogrenciNo }}
+                    </div>
+
+                    <div class="inputfield">
+                        <label>Doğum Tarihi</label>
+                        <input type="date" class="input"{{ profileform.birth_date }}
+                    </div>
+
+                    <div class="inputfield">
+                        <label>Telefon Numarası</label>
+                        <input type="phoneNumber" class="input"{{ profileform.telefonNumarasi }}
+                    </div>
+
+                    <div class="inputfield">
+    		<label>Cinsiyet</label>
+    		<div class="custom_select">
+                <select name="cinsiyet">
+                    <option value="" disabled="True" selected>Cinsiyet Seçiniz</option>
+                    <option value="Kadın">Kadın</option>
+                    <option value="Erkek">Erkek</option>
+                </select>
+            </div>
+  		</div>
+
+ 		<div class="inputfield">
+          <label>Şehir</label>
+          <div class="custom_select">
+            <select name="sehir">
+              {% include 'accounts/sehirler.html' %}
+            </select>
+          </div>
+       </div>
+
+       <div class="inputfield">
+          <label>Adres</label>
+          <textarea class="input" style="height: 80px;"{{ profileform.adres }}</textarea>
+       </div>
+
+       <div class="inputfield">
+            <label>Mezuniyet Yılı</label>
+            <input type="text" class="input"{{ profileform.mezuniyetYili }}
+        </div>
+
+        <div class="inputfield">
+            <label>İş Durumu</label>
+            <div class="custom_select">
+                <select name="calismaDurumu" id="selectBox" onchange="changeFunc();">
+                  <option value="">İş Durumu Seçiniz</option>
+                  <option value="Çalışıyorum">Çalışıyorum</option>
+                  <option value="Çalışmıyorum">Çalışmıyorum</option>
+                </select>
+            </div>
+        </div>
+
+
+  		<div id="calisiyorum" style="display: none;">
+  			<div class="inputfield">
+          		<label>Şirket/Kurum Adı</label>
+          		<input type="text" class="input" name="sirketAdi">
+       		</div>
+
+       		<div class="inputfield">
+          		<label>Sektör</label>
+          		<div class="custom_select">
+                    <select name="sektor">
+                        {% include 'accounts/sektorler.html' %}
+                    </select>
+                </div>
+       		</div>
+
+       		<div class="inputfield">
+          		<label>Ünvan/Meslek</label>
+          		<div class="custom_select">
+                    <select name="unvan">
+                        {% include 'accounts/unvanMeslek.html' %}
+                    </select>
+                </div>
+       		</div>
+
+       		<div class="inputfield">
+          		<label>İdari Görev</label>
+          		<input type="text" class="input" name="idariGorev">
+       		</div>
+
+            <div class="inputfield">
+          		<label>Maaş</label>
+          		<input type="text" class="input" name="maas">
+       		</div>
+
+       		<div class="inputfield">
+          		<label>İşe Başlama Tarihi</label>
+          		<input type="date" class="input" name="iseBaslamaTarihi">
+       		</div>
+
+            <div class="inputfield">
+                <label>Şehir</label>
+                <div class="custom_select">
+                    <select name="isIl">
+                        {% include 'accounts/sehirler.html' %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <label>İş Adresi</label>
+                <textarea class="input" style="height: 80px;" name="isAdresi"></textarea>
+            </div>
+            <br>
+
+        </div>
+
+                  <div class="inputfield">
+                      <button type="submit" name="submit" value="mezun" class="btn login-btn">KAYDET</button>
+                  </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+        </div>
+
+    <div class="row col-lg-6">
+        <div class="login-container">
+        <form method="POST" enctype="multipart/form-data" id="formGiris">
+            {% csrf_token %}
+            <img class="avatar" src="{% static 'images/avatar.png' %}">
+            <h1>Endüstri Mühendisliği</h1>
+            {% for message in messages %}
+                <p id="messages">{{ message }}</p>
+            {% endfor %}
+            <div class="input-div one">
+                <div class="i">
+                    <i class="glyphicon glyphicon-user"></i>
+                </div>
+                <div>
+
+                    <input class="input" type="text" name="username" placeholder="Kullanıcı Adı">
+                </div>
+            </div>
+            <div class="input-div two">
+                <div class="i">
+                    <i class="glyphicon glyphicon-lock"></i>
+                </div>
+                <div>
+                    <input class="input" type="password" name="password" placeholder="Şifre">
+                </div>
+            </div>
+            <a href="{% url 'password_reset' %}">Şifremi Unuttum?</a>
+            <button type="submit" name="submit" class="btn btn-primary" value="giris">Giriş Yap</button>
+        </form>
+    </div>
+    </div>
+
+</div>
+</body>
+</html>
+

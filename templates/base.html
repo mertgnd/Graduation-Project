@@ -1,0 +1,524 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title>{% block title %} {% endblock %}</title>
+
+
+
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/menü.js' %}"></script>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/body.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/menu2.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/sosyalmedya.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/profil.css' %}" type="text/css">
+
+    {% include 'base/css.html' %}
+    {% include 'base/bootstrap_defaults.html' %}
+
+
+
+    {% block head %}
+
+    {% endblock %}
+
+</head>
+
+<body style="">
+
+
+
+<div class="container">
+
+    <div class="col-lg-1">
+        <div class="logo"><img id="logo" src="{% static 'images/omu-logotr.png' %}"/></div>
+    </div>
+
+    <div class="col-lg-4">
+        <br>
+        <h3 id="baslik" class="title">OMÜ Endüstri Mühendisliği</h3>
+    </div>
+
+    <div class="col-lg-3">
+        <ul class="nav">
+            <a href="https://www.facebook.com/omuendustri/" target="_blank">
+                <li class="hm">
+                    <img class="icon" src="{% static 'images/facebook.png' %}" alt="">
+                </li>
+            </a>
+
+            <a href="https://www.instagram.com/omuendustri/" target="_blank">
+            <li class="fb">
+                <img class="icon" src="{% static 'images/instagram.png' %}" alt="">
+            </li>
+            </a>
+
+            <a href="https://twitter.com/emmtomu" target="_blank">
+            <li class="gp">
+                <img class="icon" src="{% static 'images/twitter.png' %}" alt="">
+            </li>
+            </a>
+
+            <a href="https://www.youtube.com/channel/UCCdABDcBJFOBnN6jZbnlChw" target="_blank">
+            <li class="tw">
+                <img class="icon" src="{% static 'images/youtube.png' %}" alt="">
+            </li>
+            </a>
+
+            <li class="cl">
+                <img class="icon" src="{% static 'images/mail.png' %}" alt="">
+            </li>
+        </ul>
+    </div>
+
+    <div class="dropdown1 col-lg-1" id="dropdown1">
+
+        <button class="btn3 btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="true">
+            <center><img id="avatar" src="{% static 'images/user.jpg' %}"></center>
+        </button>
+        <ul id="drop" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li class="dropdown-header" id="adSoyad">{% block kullanici %}{{user.get_full_name}}{% endblock %}</li>
+            <li role="separator" class="divider"></li>
+            <li><a href="{% url 'jobs:ilanlarim' %}">İlanlarım</a></li>
+            {% for g in user.groups.all %}
+                {% if g.name == 'Öğrenci' %}
+                    <li><a href="{% url 'belgeler:transkriptIstek' %}">Taleplerim
+                        {% if user.ogrenci.gorulenTranskript > 0 %}
+                            <span class="glyphicon glyphicon-bell"></span>
+                            {{user.ogrenci.gorulenTranskript}}
+                        {% endif %}
+                    </a></li>
+                {% endif %}
+
+                {% if g.name == 'Mezun' %}
+                    <li><a href="{% url 'belgeler:transkriptIstek' %}">Transkript Taleplerim
+                        {% if user.mezun.gorulenTranskript > 0 %}
+                            <span class="glyphicon glyphicon-bell"></span>
+                            {{user.mezun.gorulenTranskript}}
+                        {% endif %}
+                    </a></li>
+                    <li><a href="{% url 'dersicerik:dersicerikIstek' %}">Ders İçerik Taleplerim
+                        {% if user.mezun.gorulenDersIcerik > 0 %}
+                            <span class="glyphicon glyphicon-bell"></span>
+                            {{user.mezun.gorulenDersIcerik}}
+                        {% endif %}
+                    </a></li>
+
+                {% endif %}
+            {% endfor %}
+
+            <li role="separator" class="divider"></li>
+            <li><a href="{% url 'accounts:update' %}">Profil Güncelle</a></li>
+            <li><a href="{% url 'password_change' %}">Şifre Değiştir</a></li>
+            <li><a href="{% url 'accounts:logout' %}">Çıkış Yap</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<!--menü kısmı-->
+{% for g in user.groups.all %}
+{% if g.name == 'Öğrenci' %}
+
+<div id="deneme" class="container">
+    <ul id="sdt_menu" class="sdt_menu">
+        <li>
+            <a href="{% url 'anasayfa' %}">
+                <img src="{% static 'images/anasayfa.png' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+              <span class="sdt_link" style="color:#204d74;">ANASAYFA</span>
+            </span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <img src="{% static 'images/dersnot.jpg' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+              <span class="sdt_link" style="color:#204d74">DERS NOTLARI</span>
+            </span>
+            </a>
+            <div class="sdt_box">
+                <a href="{% url 'dersNotu:index' 1 %}">1. Sınıf</a>
+                <a href="{% url 'dersNotu:index' 2 %}">2. Sınıf</a>
+                <a href="{% url 'dersNotu:index' 3 %}">3. Sınıf</a>
+                <a href="{% url 'dersNotu:index' 4 %}">4. Sınıf</a>
+                <a href="{% url 'dersNotu:create' %}">Ders Notu Ekle</a>
+            </div>
+        </li>
+
+        <li>
+            <a href="#">
+                <img src="{% static 'images/belgeler.jpeg' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+              <span class="sdt_link" style="color: #204d74">BELGELER</span>
+            </span>
+            </a>
+            <div class="sdt_box">
+                <a href="{% url 'belgeler:transkriptTalep' %}">Transkrip Talep Et</a>
+            </div>
+        </li>
+
+        <li>
+            <a href="{% url 'randevu:create' %}">
+                <img src="{% static 'images/randevu.jpg' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+                <span class="sdt_link" style="color:#204d74">RANDEVU
+                    {% if user.ogrenci.gorulenRandevu > 0 %}
+                        <span class="glyphicon glyphicon-bell"></span>
+                        {{user.ogrenci.gorulenRandevu}}
+                    {% endif %}
+                </span>
+            </span>
+            </a>
+            <div class="sdt_box">
+                <a href="{% url 'randevu:create' %}">Randevu Oluştur</a>
+                <a href="{% url 'randevu:list' %}">Randevularım
+                    {% if user.ogrenci.gorulenRandevu > 0 %}
+                        <span class="glyphicon glyphicon-bell"></span>
+                        {{user.ogrenci.gorulenRandevu}}
+                    {% endif %}</span>
+                </a>
+            </div>
+        </li>
+        <li>
+            <a href="#">
+                <img src="{% static 'images/staj.jpg' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+              <span class="sdt_link" style="color:#204d74;">STAJ/İŞ<span> </span>
+                    {% if user.ogrenci.ilanToplam > 0 %}
+                        <span class="glyphicon glyphicon-bell" style="color: #2e6da4;"></span>
+                        <span style="color: #2e6da4;">{{user.ogrenci.ilanToplam}}</span>
+                    {% endif %}</span>
+            </span>
+            </a>
+            <div class="sdt_box">
+                <a href="{% url 'jobs:ilanlar' %}">İş İlanı İncele <span> </span>
+                    {% if user.ogrenci.gorulenIsId > 0 %}
+                        <span class="glyphicon glyphicon-bell" style="color: #2e6da4;"></span>
+                        <span style="color: #2e6da4;">{{user.ogrenci.gorulenIsId}}</span>
+                    {% endif %}
+                </a>
+                <a href="{% url 'jobs:stajilanlari' %}">Staj İlanı İncele<span> </span>
+                    {% if user.ogrenci.gorulenStajId > 0 %}
+                        <span class="glyphicon glyphicon-bell" style="color: #2e6da4;"></span>
+                        <span style="color: #2e6da4;">{{user.ogrenci.gorulenStajId}}</span>
+                    {% endif %}
+                </a>
+            </div>
+        </li>
+        <li>
+            <a href="{% url 'charts' %}">
+                <img src="{% static 'images/indir.jpg' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+              <span class="sdt_link" style="color:#204d74;">Site içi İstatistikler</span>
+            </span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+{% endif %}
+
+{% if g.name == 'Mezun' or g.name == 'admin' %}
+
+<div id="deneme" class="container">
+    <ul id="sdt_menu" class="sdt_menu">
+        <li>
+            <a href="{% url 'anasayfa' %}">
+                <img src="{% static 'images/anasayfa.png' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+              <span class="sdt_link" style="color:#204d74;">ANASAYFA</span>
+            </span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <img src="{% static 'images/belgeler.jpeg' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+              <span class="sdt_link" style="color:#204d74";>BELGELER</span>
+            </span>
+            </a>
+            <div class="sdt_box">
+                <a href="{% url 'belgeler:transkriptTalep' %}">Transkript Belgesi Talep Et</a>
+                <a href="{% url 'dersicerik:dersicerikTalep' %}">Ders İçerikleri Belgesi Talep Et</a>
+            </div>
+        </li>
+
+        <li>
+            <a href="{% url 'randevu:create' %}">
+                <img src="{% static 'images/randevu.jpg' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+                <span class="sdt_link" style="color:#204d74">RANDEVU
+                    {% if user.mezun.gorulenRandevu > 0 %}
+                        <span class="glyphicon glyphicon-bell"></span>
+                        {{user.mezun.gorulenRandevu}}
+                    {% endif %}</span>
+                  </span>
+                </span>
+            </a>
+            <div class="sdt_box">
+                <a href="{% url 'randevu:create' %}">Randevu Oluştur</a>
+                <a href="{% url 'randevu:list' %}">Randevularım
+                    {% if user.mezun.gorulenRandevu > 0 %}
+                        <span class="glyphicon glyphicon-bell"></span>
+                        {{user.mezun.gorulenRandevu}}
+                    {% endif %}</span>
+                </a>
+            </div>
+        </li>
+
+        <li>
+            <a href="#">
+                <img src="{% static 'images/staj.jpg' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+              <span class="sdt_link" style="color:#204d74;">STAJ/İŞ<span> </span>
+                    {% if user.mezun.ilanToplam > 0 %}
+                        <span class="glyphicon glyphicon-bell" style="color: #2e6da4;"></span>
+                        <span style="color: #2e6da4;">{{user.mezun.ilanToplam}}</span>
+                    {% endif %}</span>
+            </span>
+            </span>
+            </a>
+            <div class="sdt_box">
+                <a href="{% url 'jobs:addjobs' %}">İş İlanı Ekle</a>
+                <a href="{% url 'jobs:ilanlar' %}">İş İlanı İncele<span> </span>
+                    {% if user.mezun.gorulenIsId > 0 %}
+                        <span class="glyphicon glyphicon-bell" style="color: #2e6da4;"></span>
+                        <span style="color: #2e6da4;">{{user.mezun.gorulenIsId}}</span>
+                    {% endif %}
+                </a>
+                <a href="{% url 'jobs:stajekle' %}">Staj İlanı Ekle</a>
+                <a href="{% url 'jobs:stajilanlari' %}">Staj İlanı İncele<span> </span>
+                    {% if user.mezun.gorulenStajId > 0 %}
+                        <span class="glyphicon glyphicon-bell" style="color: #2e6da4;"></span>
+                        <span style="color: #2e6da4;">{{user.mezun.gorulenStajId}}</span>
+                    {% endif %}
+                </a>
+            </div>
+        </li>
+        <li>
+            <a href="{% url 'charts' %}">
+                <img src="{% static 'images/indir.jpg' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+              <span class="sdt_link" style="color:#204d74;">Site İçi İstatistikler</span>
+            </span>
+            </a>
+        </li>
+
+    </ul>
+</div>
+
+{% endif %}
+
+{% if g.name == 'Bölüm Sekreteri'%}
+
+<div id="deneme" class="container">
+    <ul id="sdt_menu" class="sdt_menu">
+        <li>
+            <a href="{% url 'anasayfa' %}">
+                <img src="{% static 'images/anasayfa.png' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+              <span class="sdt_link" style="color:#204d74;">ANASAYFA</span>
+            </span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <img src="{% static 'images/belgeler.jpeg' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+              <span class="sdt_link" style="color:#204d74;">BELGELER
+                    {% if user.bolumsekreteri.gorulenTranskript > 0 %}
+                        <span class="glyphicon glyphicon-bell" style="color: #2e6da4;">
+                        </span><span style="color: #2e6da4;">{{user.bolumsekreteri.gorulenTranskript}}</span>
+                    {% endif %}</span>
+              </span>
+            </span>
+            </a>
+            <div class="sdt_box">
+                <a href="{% url 'belgeler:transkriptIstek' %}">Transkript Belgesi Talepleri
+                    {% if user.bolumsekreteri.gorulenTranskript > 0 %}
+                        <span class="glyphicon glyphicon-bell"></span>
+                        {{user.bolumsekreteri.gorulenTranskript}}
+                    {% endif %}</span>
+                </a>
+            </div>
+        </li>
+
+        <li>
+            <a href="#">
+                <img src="{% static 'images/staj.jpg' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+              <span class="sdt_link" style="color:#204d74;">STAJ/İŞ<span> </span>
+              </span>
+            </span>
+            </span>
+            </a>
+            <div class="sdt_box">
+                <a href="{% url 'jobs:addjobs' %}">İş İlanı Ekle</a>
+                <a href="{% url 'jobs:ilanlar' %}">İş İlanı İncele</a>
+                <a href="{% url 'jobs:stajekle' %}">Staj İlanı Ekle</a>
+                <a href="{% url 'jobs:stajilanlari' %}">Staj İlanı İncele</a>
+            </div>
+        </li>
+        <li>
+            <a href="{% url 'charts' %}">
+                <img src="{% static 'images/indir.jpg' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+              <span class="sdt_link" style="color:#204d74;">Grafikler</span>
+            </span>
+            </a>
+        </li>
+
+    </ul>
+</div>
+
+{% endif %}
+
+{% if g.name == 'Öğretim Görevlisi' %}
+
+<div id="deneme" class="container">
+    <ul id="sdt_menu" class="sdt_menu">
+        <li>
+            <a href="{% url 'anasayfa' %}">
+                <img src="{% static 'images/anasayfa.png' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+              <span class="sdt_link" style="color:#204d74;">ANASAYFA</span>
+            </span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <img src="{% static 'images/dersnot.jpg' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+              <span class="sdt_link" style="color:#204d74">DERS NOTLARI</span>
+            </span>
+            </a>
+            <div class="sdt_box">
+                <a href="{% url 'dersNotu:index' 1 %}">1. Sınıf</a>
+                <a href="{% url 'dersNotu:index' 2 %}">2. Sınıf</a>
+                <a href="{% url 'dersNotu:index' 3 %}">3. Sınıf</a>
+                <a href="{% url 'dersNotu:index' 4 %}">4. Sınıf</a>
+                <a href="{% url 'dersNotu:create' %}">Ders Notu Ekle</a>
+            </div>
+        </li>
+
+        <li>
+            <a href="#">
+                <img src="{% static 'images/belgeler.jpeg' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+            <span class="sdt_link" style="color:#204d74;">BELGELER
+                {% if user.ogretimgorevlisi.gorulenDersIcerikMezun > 0 %}
+                    <span class="glyphicon glyphicon-bell" style="color: #2e6da4;">
+                    </span><span style="color: #2e6da4;">{{ user.ogretimgorevlisi.gorulenDersIcerikMezun }}</span>
+                {% endif %}</span>
+            </span>
+
+            </a>
+            <div class="sdt_box">
+                <a href="{% url 'dersicerik:dersicerikIstek' %}">Ders İçerikleri Belgesi Talepleri
+                    {% if user.ogretimgorevlisi.gorulenDersIcerikMezun > 0 %}
+                        <span class="glyphicon glyphicon-bell"></span>
+                        {{ user.ogretimgorevlisi.gorulenDersIcerikMezun }}
+                    {% endif %}</span>
+                </a>
+            </div>
+        </li>
+
+        <li>
+            <a href="{% url 'randevu:list' %}">
+                <img src="{% static 'images/randevu.jpg' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+                <span class="sdt_link" style="color:#204d74">RANDEVU
+                    {% if user.ogretimgorevlisi.gorulenRandevu > 0 %}
+                        <span class="glyphicon glyphicon-bell" style="color: #2e6da4;">
+                        </span><span style="color: #2e6da4;">{{ user.ogretimgorevlisi.gorulenRandevu }}</span>
+                    {% endif %}</span>
+                </span>
+
+            </a>
+            <div class="sdt_box">
+                <a href="{% url 'randevu:list' %}">Randevularım
+                    {% if user.ogretimgorevlisi.gorulenRandevu > 0 %}
+                        <span class="glyphicon glyphicon-bell"></span>
+                        {{user.ogretimgorevlisi.gorulenRandevu}}
+                    {% endif %}</span>
+                </a>
+            </div>
+        </li>
+
+        <li>
+            <a href="#">
+                <img src="{% static 'images/staj.jpg' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+              <span class="sdt_link" style="color:#204d74;">STAJ/İŞ<span> </span>
+              </span>
+            </span>
+            </span>
+            </a>
+            <div class="sdt_box">
+                <a href="{% url 'jobs:addjobs' %}">İş İlanı Ekle</a>
+                <a href="{% url 'jobs:ilanlar' %}">İş İlanı İncele</a>
+                <a href="{% url 'jobs:stajekle' %}">Staj İlanı Ekle</a>
+                <a href="{% url 'jobs:stajilanlari' %}">Staj İlanı İncele</a>
+            </div>
+        </li>
+        <li>
+            <a href="{% url 'charts' %}">
+                <img src="{% static 'images/indir.jpg' %}" alt=""/>
+                <span class="sdt_active"></span>
+                <span class="sdt_wrap">
+              <span class="sdt_link" style="color:#204d74;">Grafikler</span>
+            </span>
+            </a>
+        </li>
+
+    </ul>
+</div>
+
+{% endif %}
+
+{% endfor %}
+
+{% block body %}
+
+{% endblock %}
+
+
+</body>
+
+
+
+</html>

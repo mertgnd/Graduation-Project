@@ -1,0 +1,35 @@
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row" style="margin-left: 5px; color: white;">
+        <div class="form-group row" style="margin-right: 10px;">
+            <div class="col-sm-12" style="margin-top: 5px;">
+                <label class="col-form-label">Ad Soyad: {{user.get_full_name}}</label>
+            </div>
+        </div>
+
+        <div class="form-group row" style="margin-right: 10px;">
+            <div class="col-sm-12" style="margin-top: 5px;">
+                <textarea class="form-control" type="text" placeholder="Mesajınızı Yazınız..." style="height: 100px;" {{form.mesaj}}
+            </div>
+
+        </div>
+        {% for g in user.groups.all %}
+        {% if g.name == 'Bölüm Sekreteri' %}
+            <div class="form-group row" style="margin-right: 10px;">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Transkript Yükle* :</label><br>
+                </div>
+                <div class="col-sm-9" style="margin-top: 5px;">
+                    <input type="file" class="form-control-file" name="transkriptler">
+                </div>
+                <div class="col-sm-12">
+                    <small>*Mesajda Transkript Göndermek istiyorsanız Lütfen Transkript Yükleyiniz</small>
+                </div>
+            </div>
+        {% endif %}
+        {% endfor %}
+
+        <input class="btn btn-success" type="submit" value="Mesaj Gönder" style="width: 150px; margin-bottom: 20px;">
+    </div>
+</form>

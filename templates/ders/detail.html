@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Ders Notu Detayı{% endblock %}
+
+
+{% block body %}
+
+
+ <div class="container"
+     style="margin-top: 50px; margin-bottom: 50px; background-color: deepskyblue; width: 730px; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+        <div class="container"
+             style="background-color: #204d74; width: 700px; margin-bottom: 15px; margin-top: 15px; color: white; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px 5px 5px 5px; -moz-box-shadow: 2px 2px 2px #1E90FF; -webkit-box-shadow: 2px 2px 2px #1E90FF;">
+
+
+            <legend><b><p style="margin-top: 10px; margin-bottom: 5px; font-size: 20px; color: white;">
+            {{ders.Ders}} <small style="color:white; float: right;"> {{ ders.published_time}}</small></p>
+            </b></legend>
+
+            <div class="row" style="margin-left: 10px; font-size: 14px">
+                <div class="form-group row col-lg-10" style="margin-top: 5px;">
+                    <p><span class=" ">Not Bilgisi: </span>
+                        {{ ders.Not }}
+                    </p>
+                    <p><span class="">Ders Yılı: </span>
+                        {{ ders.Sınıf}}. Sınıf
+                    </p>
+                    <p><span class=" ">Yükleyen: </span>
+                        {{ ders.Yükleyen }}
+                    </p>
+                    <p><span class=" ">Dosya: </span>
+                        {{ ders.pdf }}
+                    </p>
+
+                </div>
+            </div>
+            <div class="row" style="margin-left: 10px;">
+                <p><a class="btn btn-info" href="{{ders.pdf.url}}" role="button" style="width: 100px;">İndir</a>
+            {% if ders.yukleyenId == user.email %}
+            <a class="btn btn-warning" href="{{ders.get_update_url}}" role="button" style="width: 100px;">Güncelle</a>
+            <a class="btn btn-danger" href="{{ders.get_delete_url}}" role="button" style="width: 100px;">Sil</a></p>
+            {% endif %}
+            </div>
+        </div>
+ </div>
+
+
+{% endblock %}

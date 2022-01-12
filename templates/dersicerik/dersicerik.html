@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Transkript Belgesi Talep Et{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+
+{% for g in user.groups.all %}
+{% if g.name == 'Mezun' %}
+<div class="container"
+     style="background-color: #333333; color: white; width: 750px; margin-bottom: 20px; margin-top: 50px; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <legend style="margin-top: 20px; color: white;"><b><span style="margin-top: 10px; margin-bottom: 5px; font-size: 20px;">Ders İçerik Belgesi Formu</span><span style="float: right; margin-right: 10px;">Tarih: {{ tarih|date:"d/m/Y" }}</span></b></legend>
+        <div class="row" style="margin-left: 5px;">
+
+            <div class="form-group row" style="margin-right: 10px;">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Ad</label>
+                </div>
+                <div class="col-sm-9">
+                    <input class="form-control" type="text" name="ad" value="{{user.first_name}}">
+                </div>
+            </div>
+
+            <div class="form-group row" style="margin-right: 10px;">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Soyad</label>
+                </div>
+                <div class="col-sm-9">
+                    <input class="form-control" type="text" name="soyad" value="{{user.last_name}}">
+                </div>
+            </div>
+
+            <div class="form-group row" style="margin-right: 10px;">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Öğrenci Numarası</label>
+                </div>
+                <div class="col-sm-9">
+                    <input class="form-control" type="text" name="ogrenciNo" maxlength="8">
+                </div>
+            </div>
+
+            <div class="form-group row" style="margin-right: 10px;">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Mezuniyet Yılı</label>
+                </div>
+                <div class="col-sm-9">
+                    <input class="form-control" type="text" name="mezunYili" maxlength="4">
+                </div>
+            </div>
+
+            <div class="form-group row" style="margin-right: 10px;">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Dersin Adı</label>
+                </div>
+                <div class="col-sm-9">
+                    <input class="form-control" type="text" name="dersAdi">
+                </div>
+            </div>
+
+            <div class="form-group row" style="margin-right: 10px;">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Öğretim Görevlisi</label>
+                </div>
+                <div class="col-sm-9">
+                    <div class="custom_select">
+                        <select name="ogretimGorevlisi" class="form-control" style="color: black;">
+                            <option value="" disabled="True" selected >Öğretim Görevlisi Seçiniz</option>
+                            {% for hoca in ogretimGorevlisi %}
+                            <option value="{{hoca.user.get_full_name}}">{{hoca.user.get_full_name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row" style="margin-right: 10px;">
+                <div class="col-sm-3" style="margin-top: 5px;">
+                    <label class="col-form-label">Açıklama</label>
+                </div>
+                <div class="col-sm-9">
+                    <textarea class="form-control" type="text" name="aciklama" style="height: 100px;"></textarea>
+                </div>
+            </div>
+
+
+        <input class="btn btn-success" type="submit" value="Oluştur" style="width: 100px; margin-left: 10px; margin-bottom: 20px;">
+        </div>
+    </form>
+
+</div>
+{% endif %}
+{% endfor %}
+
+{% endblock %}

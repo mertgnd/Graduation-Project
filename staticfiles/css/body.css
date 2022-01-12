@@ -1,0 +1,13 @@
+body{
+    background-image: url('/static/images/arkaplan6.jpeg');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+     background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family:Arial;
+}

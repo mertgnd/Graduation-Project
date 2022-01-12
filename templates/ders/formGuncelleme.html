@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Ders Notu Güncelle{% endblock %}
+
+{% block body %}
+
+<div class="container"
+     style="background-color: #333333; color: white; width: 750px; margin-bottom: 20px; margin-top: 50px; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <legend style="margin-top: 20px; color: white;"><b><p style="margin-top: 10px; margin-bottom: 5px; margin-left:15px; font-size: 20px;">Ders Notu Güncelle</p></b></legend>
+
+        <div class="row" style="margin-left: 5px; margin-top: 20px;">
+
+            <div class="col-sm-3" style="margin-top: 5px;">
+                <label class="col-form-label">Ders Adı: </label>
+            </div>
+            <div class="col-sm-9" style="margin-top: 5px;">
+                <input class="form-control" type="text" class="input" {{form.Ders}}
+            </div>
+
+            <div class="col-sm-3" style="margin-top: 15px;">
+                <label class="col-form-label">Not Hakkında Bilgi: </label>
+            </div>
+            <div class="col-sm-9" style="margin-top: 15px;">
+                <textarea style="height: 100px;" class="form-control" type="text" class="input" value="Notun tutulduğu yıl, içerdiği konular vs" {{form.Not}}
+            </div>
+
+            <div class="col-sm-3" style="margin-top: 15px;">
+                <label class="col-form-label" for="sinif">Hangi Sınıfa Ait: </label>
+            </div>
+            <div class="col-sm-9" style="margin-top: 15px;">
+                <select class="form-control" id="sinif" name="sinif" style="width: 130px;">
+                    <option value="" disabled>Sınıf Seçiniz</option>
+                    {% if dersler.Sınıf == "1" %}
+                        <option value="1" selected>1. Sınıf Notu</option>
+                    {% else %}
+                        <option value="1">1. Sınıf Notu</option>
+                    {% endif %}
+                    {% if dersler.Sınıf == "2" %}
+                        <option value="2" selected>2. Sınıf Notu</option>
+                    {% else %}
+                        <option value="2">2. Sınıf Notu</option>
+                    {% endif %}
+                    {% if dersler.Sınıf == "3" %}
+                        <option value="3" selected>3. Sınıf Notu</option>
+                    {% else %}
+                        <option value="3">3. Sınıf Notu</option>
+                    {% endif %}
+                    {% if dersler.Sınıf == "4" %}
+                        <option value="4" selected>4. Sınıf Notu</option>
+                    {% else %}
+                        <option value="4">4. Sınıf Notu</option>
+                    {% endif %}
+                </select>
+            </div>
+
+            <div class="col-sm-3" style="margin-top: 15px;">
+                <label class="col-form-label">Ders Notunu Yükle: </label>
+            </div>
+            <div class="col-sm-9" style="margin-top: 15px;">
+                <input type="file" class="form-control-file" name="dosyaPdf">
+            </div>
+
+        </div>
+
+            <input class="btn btn-primary"role="button" type="submit" value="Ekle" style="width: 100px; margin-left: 10px; margin-bottom: 20px; margin-top: 20px;">
+
+    </form>
+</div>
+
+
+
+{% endblock %}

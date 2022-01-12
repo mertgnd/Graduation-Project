@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7257d564-446f-4215-84f4-0136c6ec0916" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="collations" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="Python Script" />
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Z4K7xyyai0WJljh6xkP4kxetoD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="Bitirme Projesi" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="Bitirme Projesi" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="PyDebuggerOptionsProvider">
+    <option name="mySaveCallSignatures" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ENES\Desktop\Bitirme Projesi\templates\accounts" />
+      <recent name="C:\Users\ENES\Desktop\Bitirme Projesi\static\images" />
+      <recent name="C:\Users\ENES\Desktop\Bitirme Projesi\templates\belgeler" />
+      <recent name="C:\Users\ENES\Desktop\Bitirme Projesi\belgeler" />
+      <recent name="C:\Users\ENES\Desktop\Bitirme Projesi\templates\ders" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mertg\Desktop\Bitirme Projesi Son\templates\grafik2" />
+      <recent name="C:\Users\mertg\Desktop\Bitirme Projesi Son" />
+      <recent name="C:\Users\mertg\Desktop\Bitirme Projesi Son\grafikler" />
+      <recent name="C:\Users\mertg\Desktop\Bitirme Projesi Son\grafikler\grafik" />
+      <recent name="C:\Users\mertg\Desktop\Bitirme Projesi\static\images" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7257d564-446f-4215-84f4-0136c6ec0916" name="Default Changelist" comment="" />
+      <created>1584092763782</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584092763782</updated>
+      <workItem from="1584092771431" duration="17000" />
+      <workItem from="1584092790471" duration="5695000" />
+      <workItem from="1584106731517" duration="3648000" />
+      <workItem from="1584162221129" duration="14563000" />
+      <workItem from="1584251751081" duration="873000" />
+      <workItem from="1584354267250" duration="2958000" />
+      <workItem from="1584554847934" duration="176000" />
+      <workItem from="1584976015043" duration="4620000" />
+      <workItem from="1584982221158" duration="616000" />
+      <workItem from="1585065520308" duration="1662000" />
+      <workItem from="1585177187396" duration="1569000" />
+      <workItem from="1585179280642" duration="2230000" />
+      <workItem from="1585182262456" duration="791000" />
+      <workItem from="1585222299903" duration="331000" />
+      <workItem from="1585319326048" duration="209000" />
+      <workItem from="1585665879397" duration="10014000" />
+      <workItem from="1585687845251" duration="1270000" />
+      <workItem from="1586104950369" duration="2915000" />
+      <workItem from="1586111397347" duration="1642000" />
+      <workItem from="1586119391864" duration="948000" />
+      <workItem from="1586183032772" duration="3799000" />
+      <workItem from="1586204886213" duration="7069000" />
+      <workItem from="1586289960680" duration="285000" />
+      <workItem from="1586358237829" duration="8754000" />
+      <workItem from="1586369220981" duration="472000" />
+      <workItem from="1586382248180" duration="6507000" />
+      <workItem from="1586462257285" duration="3215000" />
+      <workItem from="1586536412673" duration="14709000" />
+      <workItem from="1586558407368" duration="6195000" />
+      <workItem from="1586610746848" duration="5112000" />
+      <workItem from="1586648895705" duration="6071000" />
+      <workItem from="1586702221891" duration="19528000" />
+      <workItem from="1586858883850" duration="543000" />
+      <workItem from="1587068208258" duration="4730000" />
+      <workItem from="1587163466926" duration="6554000" />
+      <workItem from="1587221157423" duration="8351000" />
+      <workItem from="1587346146987" duration="2934000" />
+      <workItem from="1587349107330" duration="1062000" />
+      <workItem from="1587350191098" duration="858000" />
+      <workItem from="1587353393586" duration="2528000" />
+      <workItem from="1587356058031" duration="2359000" />
+      <workItem from="1587479528894" duration="1621000" />
+      <workItem from="1587929653123" duration="103000" />
+      <workItem from="1588038291574" duration="30060000" />
+      <workItem from="1588101675671" duration="1210000" />
+      <workItem from="1588111533573" duration="10768000" />
+      <workItem from="1588187644809" duration="2242000" />
+      <workItem from="1588194188781" duration="422000" />
+      <workItem from="1588194875440" duration="3308000" />
+      <workItem from="1589613039986" duration="10000" />
+      <workItem from="1588244645845" duration="553000" />
+      <workItem from="1588245327622" duration="336000" />
+      <workItem from="1588277999076" duration="653000" />
+      <workItem from="1588377132747" duration="22752000" />
+      <workItem from="1588453554187" duration="17259000" />
+      <workItem from="1588545468773" duration="1459000" />
+      <workItem from="1588588550697" duration="5555000" />
+      <workItem from="1588667996232" duration="1659000" />
+      <workItem from="1588680615742" duration="1253000" />
+      <workItem from="1588803858788" duration="18238000" />
+      <workItem from="1588902798608" duration="12087000" />
+      <workItem from="1588978534565" duration="8774000" />
+      <workItem from="1589017431645" duration="2246000" />
+      <workItem from="1589029803662" duration="2494000" />
+      <workItem from="1589046456916" duration="6345000" />
+      <workItem from="1589063997383" duration="2239000" />
+      <workItem from="1589066296861" duration="1830000" />
+      <workItem from="1589068208480" duration="874000" />
+      <workItem from="1589105209339" duration="1573000" />
+      <workItem from="1589110321297" duration="3870000" />
+      <workItem from="1589120730768" duration="485000" />
+      <workItem from="1589123388369" duration="14357000" />
+      <workItem from="1589155183110" duration="12127000" />
+      <workItem from="1589223432747" duration="5127000" />
+      <workItem from="1589311150857" duration="7001000" />
+      <workItem from="1589324331009" duration="1917000" />
+      <workItem from="1589383037864" duration="2000" />
+      <workItem from="1589479365549" duration="1043000" />
+      <workItem from="1589480747209" duration="226000" />
+      <workItem from="1589483030974" duration="2000" />
+      <workItem from="1589576375816" duration="5896000" />
+      <workItem from="1589650687097" duration="13396000" />
+      <workItem from="1589745792391" duration="2708000" />
+      <workItem from="1589749302579" duration="147000" />
+      <workItem from="1589749456620" duration="3054000" />
+      <workItem from="1589985445915" duration="13070000" />
+      <workItem from="1590056625177" duration="5216000" />
+      <workItem from="1590069542792" duration="498000" />
+      <workItem from="1590071711686" duration="18277000" />
+      <workItem from="1590098274119" duration="16733000" />
+      <workItem from="1590123768649" duration="650000" />
+      <workItem from="1590124440812" duration="855000" />
+      <workItem from="1590126588779" duration="4531000" />
+      <workItem from="1590132191712" duration="17000" />
+      <workItem from="1590132242109" duration="1001000" />
+      <workItem from="1590134786194" duration="3754000" />
+      <workItem from="1590422252507" duration="308000" />
+      <workItem from="1590424772077" duration="635000" />
+      <workItem from="1590427721338" duration="4000" />
+      <workItem from="1590427742647" duration="1000" />
+      <workItem from="1590428023931" duration="668000" />
+      <workItem from="1590449529040" duration="727000" />
+      <workItem from="1590524534151" duration="621000" />
+      <workItem from="1590537774196" duration="2280000" />
+      <workItem from="1590759010246" duration="2000" />
+      <workItem from="1590770143024" duration="4237000" />
+      <workItem from="1590857868893" duration="5220000" />
+      <workItem from="1590872135304" duration="917000" />
+      <workItem from="1591044345151" duration="38000" />
+      <workItem from="1591044682190" duration="94000" />
+      <workItem from="1591137372816" duration="171000" />
+      <workItem from="1600721398619" duration="2612000" />
+      <workItem from="1600785898766" duration="687000" />
+      <workItem from="1600786718574" duration="809000" />
+      <workItem from="1600788017704" duration="4914000" />
+      <workItem from="1600801566723" duration="10000" />
+      <workItem from="1601309721218" duration="2934000" />
+      <workItem from="1601326277678" duration="688000" />
+      <workItem from="1601375207200" duration="599000" />
+      <workItem from="1601379449953" duration="8557000" />
+      <workItem from="1601459019680" duration="2025000" />
+      <workItem from="1601473837300" duration="35000" />
+      <workItem from="1601543417994" duration="165000" />
+      <workItem from="1601546031482" duration="401000" />
+      <workItem from="1601556683789" duration="64000" />
+      <workItem from="1601582551653" duration="619000" />
+      <workItem from="1601627067189" duration="2774000" />
+      <workItem from="1601737936663" duration="1362000" />
+      <workItem from="1601740893145" duration="5483000" />
+      <workItem from="1601824022736" duration="236000" />
+      <workItem from="1601825719694" duration="512000" />
+      <workItem from="1601826276317" duration="136000" />
+      <workItem from="1601931490717" duration="236000" />
+      <workItem from="1602110024699" duration="100000" />
+      <workItem from="1602528301813" duration="270000" />
+      <workItem from="1602759500460" duration="198000" />
+      <workItem from="1602874042965" duration="444000" />
+      <workItem from="1603230024130" duration="440000" />
+      <workItem from="1603231942219" duration="1205000" />
+      <workItem from="1603549979620" duration="32000" />
+      <workItem from="1603573831932" duration="304000" />
+      <workItem from="1603661510871" duration="6000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="171" key="FileChooserDialogImpl" timestamp="1600801574709">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="171" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1600801574709" />
+    <state x="477" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1603661511077">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="477" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1603661511077" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/templates/jobs/ilanlarim.html</url>
+          <line>51</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/templates/accounts/index.html</url>
+          <line>31</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block kullanici %}
+{{ user.get_full_name }}
+{% endblock %}
+
+{% block title %}İlan Detayı{% endblock %}
+
+{% block head %}
+<script type="text/javascript" src="{% static 'js/haberEtkinlik.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/haberEtkinlik.css' %}" type="text/css">
+{% endblock %}
+
+{% block body %}
+<div class="container" style="width: 780px; background-color: #9d9d9d; margin-bottom: 40px; margin-top: 50px;
+-webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+<div class="container"
+     style="background-color: #333333; width: 750px; margin-bottom: 20px; margin-top: 15px;
+     -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+
+    <legend style="margin-top: 20px; color: white"><b><p style="margin-top: 10px; margin-bottom: 5px; font-size: 20px;">{{ilan.isOzeti}}</p></b></legend>
+        <div class="row" style="margin-left: 5px; margin-right: 5px; color: white">
+
+            <form class="form-group row">
+            <p>
+            <div class="col-sm-2" style="margin-top: 5px;">
+                <span class="glyphicon glyphicon-briefcase"></span>
+                <label class="col-form-label">Firma Adı:</label>
+            </div>
+            <div class="col-sm-10">
+                {{ilan.firma}}
+            </div>
+            </p>
+        </form>
+
+            <form class="form-group row">
+            <div class="col-sm-2" style="margin-top: 5px;">
+                <span class="glyphicon glyphicon-map-marker"></span>
+                <label class="col-form-label">İl/İlçe:</label>
+            </div>
+            <div class="col-sm-10">
+                {{ilan.konum}}
+            </div>
+        </form>
+
+            <form class="form-group row">
+            <div class="col-sm-2" style="margin-top: 5px;">
+                <span class="glyphicon glyphicon-calendar"></span>
+                <label class="col-form-label">İlan Tarihi:</label>
+            </div>
+            <div class="col-sm-10">
+                {{ilan.ilanTarihi|date:"SHORT_DATE_FORMAT"}}
+            </div>
+        </form>
+        </div>
+</div>
+
+<div class="container"
+     style="background-color: #333333; width: 750px; margin-bottom: 20px; margin-top: 20px;
+     -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+    <legend style="color: white; margin-top: 20px;"><b><p style="margin-top: 10px; font-size: 20px;">İş Tanımı</p></b></legend>
+
+    <div class="row" style="margin-left: 5px; margin-right: 5px; margin-bottom: 20px; color:white;"><p>
+        {{ilan.isTanimi}}</p>
+    </div>
+
+</div>
+
+<div class="container"
+     style="background-color: #333333; width: 750px; margin-bottom: 20px; margin-top: 20px;
+     -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+    <legend style="color: white; margin-top: 20px;"><b><p style="margin-top: 10px; font-size: 20px;">Aranan Nitelikler</p></b></legend>
+
+    <div class="row" style="margin-left: 5px; margin-right: 5px; margin-bottom: 20px; color: white;"><p>
+        {{ilan.nitelikler}}</p>
+    </div>
+
+</div>
+
+<div class="container"
+     style="background-color: #333333; width: 750px; margin-bottom: 15px; margin-top: 20px;
+     -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+
+    <legend style="color: white; margin-top: 20px;"><b><p style="margin-top: 5px; margin-bottom: 5px; font-size: 20px;">İlan Bilgileri</p></b></legend>
+
+    <div class="row" style="margin-left: 5px; margin-right: 5px; color: white">
+
+    <form class="form-group row" style="margin-bottom: 20px;">
+        <div class="col-lg-3">
+            <label>Pozisyon:</label>
+        </div>
+        <div class="col-lg-9">
+            {{ilan.pozisyon}}
+        </div>
+    </form>
+
+    <form class="form-group row" style="margin-bottom: 20px;">
+        <div class="col-lg-3">
+            <label>Sektör:</label>
+        </div>
+        <div class="col-lg-9">
+            {{ilan.sektor}}
+        </div>
+    </form>
+
+    <form class="form-group row" style="margin-bottom: 20px;">
+        <div class="col-lg-3">
+            <label>Çalışma Şekli: </label>
+        </div>
+        <div class="col-lg-9">
+            {{ilan.calismaSekli}}
+        </div>
+    </form>
+
+    <form class="form-group row" style="margin-bottom: 20px;">
+        <div class="col-lg-3">
+            <label>Pozisyon Seviyesi:</label>
+        </div>
+        <div class="col-lg-9">
+            {{ilan.pozisyonSeviyesi}}
+        </div>
+    </form>
+
+    <form class="form-group row" style="margin-bottom: 20px;">
+        <div class="col-lg-3">
+            <label>Çalışma Yeri:</label>
+        </div>
+        <div class="col-lg-9">
+            {{ilan.adres}}
+        </div>
+    </form>
+
+    <form class="form-group row" style="margin-bottom: 20px;">
+        <div class="col-lg-3">
+            <label>Başvuru Şekli:</label>
+        </div>
+        <div class="col-lg-9">
+            {{ilan.basvuruSekli}}
+        </div>
+    </form>
+
+    <form class="form-group row" style="margin-bottom: 20px;">
+        <div class="col-lg-3">
+            <label>İlan Sahibi:</label>
+        </div>
+        <div class="col-lg-9">
+            {{ilan.ilanSahibi}}
+        </div>
+    </form>
+
+    <form class="form-group row" style="margin-bottom: 20px;">
+        <div class="col-lg-3">
+            <label>Son Başvuru Tarihi: </label>
+        </div>
+        <div class="col-lg-9">
+            {{ilan.sonBasvuruTarihi|date:"SHORT_DATE_FORMAT"}}
+        </div>
+
+    </form>
+</div>
+</div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block kullanici %}
+{{ user.get_full_name }}
+{% endblock %}
+
+{% block title %}Staj İlanları İncele{% endblock %}
+
+{% block head %}
+<script type="text/javascript" src="{% static 'js/haberEtkinlik.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/haberEtkinlik.css' %}" type="text/css">
+{% endblock %}
+
+{% block body %}
+<div class="container" style="margin-top: 50px; margin-bottom: 50px; background-color: #333; width: 730px; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+{% for ilan in ilanlar %}
+
+<div class="container"
+     style="background-color: #666; width: 700px; margin-bottom: 15px; margin-top: 15px; display: block; color: white; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px 5px 5px 5px; -moz-box-shadow: 2px 2px 2px #1E90FF; -webkit-box-shadow: 2px 2px 2px #1E90FF;">
+
+
+    <legend><b><p style="margin-top: 10px; margin-bottom: 5px; font-size: 20px; color: white;">
+        {{ilan.stajBaslik}}</p>
+    </b></legend>
+    <div class="row" style="margin-left: 5px; font-size: 14px">
+        <div class="form-group row col-lg-10" style="margin-top: 5px;">
+            <p>
+                <span class="glyphicon glyphicon-briefcase" style="margin-left: 20px;"></span>
+                {{ilan.stajFirma}}<br>
+                <span class="glyphicon glyphicon-map-marker" style="margin-left: 20px;"></span>
+                {{ilan.stajKonum}}<br>
+                <span class="glyphicon glyphicon-calendar" style="margin-left: 20px;"></span>
+                {{ilan.stajIlanTarihi|date:"SHORT_DATE_FORMAT"}} - {{ilan.stajSonBasvuruTarihi|date:"SHORT_DATE_FORMAT"}}
+            </p>
+        </div>
+
+        <div class="col-lg-2">
+            <br>
+            <button class="btn btn-info pull-right" type="submit" onclick="location.href='{% url 'jobs:stajilanidetay' ilan.pk %}';" style="margin-right: 20px; width: 100px;">İncele</button>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+</div>
+{% endblock %}

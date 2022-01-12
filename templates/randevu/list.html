@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block kullanici %}
+{{ user.get_full_name }}
+{% endblock %}
+
+{% block title %}Anasayfa{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="container" style="margin-top: 50px; margin-bottom: 50px; background-color:deepskyblue; width: 730px; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px 10px 10px 10px;">
+    {% for grup in user.groups.all%}
+        {% if grup.name == 'Öğrenci' %}
+            {% for ogrenciRandevu in ogrenciRandevu %}
+                <div class="container"
+                    style="background-color:#204d74; width: 700px; margin-bottom: 15px; margin-top: 15px; color: white; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px 5px 5px 5px; -moz-box-shadow: 2px 2px 2px #1E90FF; -webkit-box-shadow: 2px 2px 2px #1E90FF;">
+
+
+                    <a href="{% url 'randevu:detay' ogrenciRandevu.id 0 %}"><legend><b><p style="margin-top: 10px; margin-bottom: 5px; font-size: 20px; color: white;">
+                        {{ogrenciRandevu.randevuBaslik}}</p>
+                    </b></legend></a>
+                    <div class="row" style="margin-left: 5px; font-size: 14px">
+                        <div class="form-group row col-lg-10" style="margin-top: 5px;">
+                            <p>
+                                <span class="glyphicon glyphicon-envelope" style="margin-left: 20px;"></span>
+                                <label>Randevu İçeriği : </label>{{ogrenciRandevu.randevuIcerik}}<br>
+                                <span class="glyphicon glyphicon-user" style="margin-left: 20px;"></span>
+                                <label>Öğretim Görevlisi : </label>{{ogrenciRandevu.ogretimGorevlisi}}<br>
+                                <span class="glyphicon glyphicon-time" style="margin-left: 20px;"></span>
+                                <label>Randevu Tarihi : </label>{{ogrenciRandevu.randevuTarihi}}
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif%}
+
+        {% if grup.name == 'Mezun' %}
+            {% for mezunRandevu in mezunRandevu %}
+                <div class="container"
+                    style="background-color:#204d74; width: 700px; margin-bottom: 15px; margin-top: 15px; color: white; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px 5px 5px 5px; -moz-box-shadow: 2px 2px 2px #1E90FF; -webkit-box-shadow: 2px 2px 2px #1E90FF;">
+
+
+                    <a href="{% url 'randevu:detay' mezunRandevu.id 1 %}"><legend><b><p style="margin-top: 10px; margin-bottom: 5px; font-size: 20px; color: white;">
+                        {{mezunRandevu.randevuBaslik}}</p>
+                    </b></legend></a>
+                    <div class="row" style="margin-left: 5px; font-size: 14px">
+                        <div class="form-group row col-lg-10" style="margin-top: 5px;">
+                            <p>
+                                <span class="glyphicon glyphicon-envelope" style="margin-left: 20px;"></span>
+                                <label>Randevu İçeriği : </label>{{mezunRandevu.randevuIcerik}}<br>
+                                <span class="glyphicon glyphicon-user" style="margin-left: 20px;"></span>
+                                <label>Öğretim Görevlisi : </label>{{mezunRandevu.ogretimGorevlisi}}<br>
+                                <span class="glyphicon glyphicon-time" style="margin-left: 20px;"></span>
+                                <label>Randevu Tarihi : </label>{{mezunRandevu.randevuTarihi}}
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if grup.name == 'Öğretim Görevlisi' %}
+            {% for mezunRandevular in mezunRandevu %}
+
+                <div class="container"
+                    style="background-color:#204d74; width: 700px; margin-bottom: 15px; margin-top: 15px; color: white; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px 5px 5px 5px; -moz-box-shadow: 2px 2px 2px #1E90FF; -webkit-box-shadow: 2px 2px 2px #1E90FF;">
+
+                    <a href="{% url 'randevu:detay' mezunRandevular.id 1 %}"><legend><b><p style="margin-top: 10px; margin-bottom: 5px; font-size: 20px; color: white;">
+                        {{mezunRandevular.randevuBaslik}}</p>
+                    </b></legend></a>
+                    <div class="row" style="margin-left: 5px; font-size: 14px">
+                        <div class="form-group row col-lg-10" style="margin-top: 5px;">
+                            <p>
+                                <span class="glyphicon glyphicon-envelope" style="margin-left: 20px;"></span>
+                                <label>Randevu İçeriği : </label>{{mezunRandevular.randevuIcerik}}<br>
+                                <span class="glyphicon glyphicon-user" style="margin-left: 20px;"></span>
+                                <label>Öğretim Görevlisi : </label>{{mezunRandevular.ogretimGorevlisi}}<br>
+                                <span class="glyphicon glyphicon-time" style="margin-left: 20px;"></span>
+                                <label>Randevu Tarihi : </label>{{mezunRandevular.randevuTarihi}}
+                            </p>
+                        </div>
+
+                        <div class="col-lg-2">
+                        <br>
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% for ogrenciRandevu in ogrenciRandevu %}
+
+                <div class="container"
+                    style="background-color:#204d74; width: 700px; margin-bottom: 15px; margin-top: 15px; color: white; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px 5px 5px 5px; -moz-box-shadow: 2px 2px 2px #1E90FF; -webkit-box-shadow: 2px 2px 2px #1E90FF;">
+
+
+                    <a href="{% url 'randevu:detay' ogrenciRandevu.id 0 %}"><legend><b><p style="margin-top: 10px; margin-bottom: 5px; font-size: 20px; color: white;">
+                        {{ogrenciRandevu.randevuBaslik}}</p>
+                    </b></legend></a>
+                    <div class="row" style="margin-left: 5px; font-size: 14px">
+                        <div class="form-group row col-lg-10" style="margin-top: 5px;">
+                            <p>
+                                <span class="glyphicon glyphicon-envelope" style="margin-left: 20px;"></span>
+                                <label>Randevu İçeriği : </label>{{ogrenciRandevu.randevuIcerik}}<br>
+                                <span class="glyphicon glyphicon-user" style="margin-left: 20px;"></span>
+                                <label>Öğretim Görevlisi : </label>{{ogrenciRandevu.ogretimGorevlisi}}<br>
+                                <span class="glyphicon glyphicon-time" style="margin-left: 20px;"></span>
+                                <label>Randevu Tarihi : </label>{{ogrenciRandevu.randevuTarihi}}
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+
+
+        {% endif %}
+    {% endfor %}            
+    </div>
+{% endblock %}

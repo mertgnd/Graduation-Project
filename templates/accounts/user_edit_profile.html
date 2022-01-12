@@ -1,0 +1,11 @@
+{% load static %}
+
+{% block icerik %}
+    <div class="col-lg-6 col-lg-offset-3">
+        <form action="{% url 'accounts:user-edit-profile-mezun'%}" method="post">
+            {% csrf_token %}
+            {% include 'form_template_html %}
+            <input type="submit" value="register" class="btn btn-success">
+        </form>
+    </div>
+{% endblock%}
